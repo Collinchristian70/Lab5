@@ -1,13 +1,17 @@
-def Fibonacci (n):
+from typing import Sequence
+
+
+def fibonacci (n):
     if n < 0:
         print("Incorrect input")
+    sequence = [0,1]
+    for i in range(2,n+1):
+        next_num = sequence[-1] + sequence[-2]
 
-    elif n == 0:
-        return 0
-    elif n == 1 or n== 2:
-           return 1
+        sequence.append(next_num)
+    return sequence
 
-    else:
-        return Fibonacci (n-1) + Fibonacci (n-2)
+sequence = fibonacci(10)
+print(sequence)
 
-print (Fibonacci(9)) 
+

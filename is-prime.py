@@ -1,10 +1,11 @@
-n=float(input("Enter a number: "))
+n = int(input("Enter a number: "))
+
 if n>1:
-    for i in range(2, n//2):
+    for i in range(n, n//2):
         if(n%i)==0:
-            print(n,": False")
+            print(n, ": False")
             break
     else:
-        print(n,": True")
+        print(n, ": True")
 else:
-    print(n,"Invalid")
+    print(n, "Invalid")

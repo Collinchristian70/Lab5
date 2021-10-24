@@ -61,10 +61,10 @@ if n > 1:
             print(n,": False")
             break
     else:
-        print(n,": True")
+        print(n,": True - This number is prime")
 
 elif type(n) != int:
-    print("Invalid")
+    print("Invalid - this number is not prime")
 
 # Prime Code End
 

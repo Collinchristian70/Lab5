@@ -1,24 +1,24 @@
-from flask import Flask, request, render_template
+#from flask import Flask, request, render_template
 import hashlib
 from typing import Sequence
 
-app = Flask(__name__)
+#app = Flask(__name__)
 
-@app.route("/")
-def contact():
-    if request.method == 'POST':
-        if request.form['submit_button'] == 'Do Something':
-            pass # do something
-        elif request.form['submit_button'] == 'Do Something Else':
-            pass # do something else
-        else:
-            pass # unknown
-    elif request.method == 'GET':
-        return render_template('index.html', form=form)
+#@app.route("/")
+#def contact():
+#    if request.method == 'POST':
+#        if request.form['submit_button'] == 'Do Something':
+#            pass # do something
+#        elif request.form['submit_button'] == 'Do Something Else':
+#            pass # do something else
+#        else:
+#            pass # unknown
+#    elif request.method == 'GET':
+#        return render_template('index.html', form=form)
 
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
+#if __name__ == '__main__':
+#    app.debug = True
+#    app.run(host="0.0.0.0")
 
 #MD5 Code Start
 def MD5():
@@ -49,7 +49,11 @@ def Factorial():
 Factorial()
 
 # Fibonacci Code Start
-def fibonacci (n):
+def fibonacci ():
+
+    print("Input interger")
+    n = int(input())
+
     if n < 0:
         print("Incorrect input")
     sequence = [0,1]
@@ -62,6 +66,7 @@ def fibonacci (n):
     sequence = fibonacci(10)
     print(sequence)
 # Fibonacci Code End
+fibonacci()
 
 # Prime Code Start
 def Prime():

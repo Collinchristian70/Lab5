@@ -64,7 +64,7 @@ if n > 1:
         print(n,": True - This number is prime")
 
 elif type(n) != int:
-    print("Invalid - this number is not prime")
+    print("Invalid - This number is not prime")
 
 # Prime Code End
 

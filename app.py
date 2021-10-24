@@ -21,7 +21,7 @@ hexa_value = hash_obj.hexdigest()
 print("\n", hexa_value, "\n")
 #MD5 Code End
 
-#Factorial Start
+#Factorial Code Start
 print("Input an integer")
 num = int(input())
 factorial = 1
@@ -34,9 +34,9 @@ else:
        factorial = factorial*i
    print("The factorial of",num,"is",factorial)
 print("")
-#Factorial End
+#Factorial Code End
 
-# Fibonacci Start
+# Fibonacci Code Start
 def fibonacci (n):
     if n < 0:
         print("Incorrect input")
@@ -49,8 +49,27 @@ def fibonacci (n):
 
 sequence = fibonacci(10)
 print(sequence)
-# Fibonacci End
-# Slack message start 
+# Fibonacci Code End
+
+# Prime Code Start
+
+n = int(input("Enter a number: "))
+
+if n > 1:
+    for i in range(2, n//2):
+        if(n % i) == 0:
+            print(n,": False")
+            break
+    else:
+        print(n,": True")
+
+elif type(n) != int:
+    print("Invalid")
+
+# Prime Code End
+
+
+# Slack Message Start
 import sys
 import getopt 
 
@@ -85,4 +104,4 @@ def main(argv):
 if __name__ == "__main__":
     main(sys.argv[1:])
     
-    #slack message end 
+# Slack Message End

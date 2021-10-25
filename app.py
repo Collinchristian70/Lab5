@@ -1,24 +1,24 @@
-#from flask import Flask, request, render_template
+from flask import Flask, request, render_template
 import hashlib
 from typing import Sequence
 
-#app = Flask(__name__)
+app = Flask(__name__)
 
-#@app.route("/")
-#def contact():
-#    if request.method == 'POST':
-#        if request.form['submit_button'] == 'Do Something':
-#            pass # do something
-#        elif request.form['submit_button'] == 'Do Something Else':
-#            pass # do something else
-#        else:
-#            pass # unknown
-#    elif request.method == 'GET':
-#        return render_template('index.html', form=form)
+@app.route("/")
+def contact():
+    if request.method == 'POST':
+        if request.form['submit_button'] == 'Do Something':
+            pass 
+        elif request.form['submit_button'] == 'Do Something Else':
+            pass # do something else
+        else:
+            pass # unknown
+    elif request.method == 'GET':
+        return '<h3>Our Flask Buttons<h3/> <form method="post" action="/"> <input type="submit" name="submit_button" value="MD5"> <input type="submit" name="submit_button" value="Do Something Else"> </form>'
 
-#if __name__ == '__main__':
-#    app.debug = True
-#    app.run(host="0.0.0.0")
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host="0.0.0.0")
 
 #MD5 Code Start
 def MD5():

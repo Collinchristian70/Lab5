@@ -22,7 +22,7 @@ print("\n", hexa_value, "\n")
 #MD5 Code End
 
 #Factorial Code Start
-print("Input an integer")
+print("Input an integer for a factorial conversion")
 num = int(input())
 factorial = 1
 if num < 0:
@@ -37,6 +37,8 @@ print("")
 #Factorial Code End
 
 # Fibonacci Code Start
+print("Input an integer for the Fibonacci sequence")
+n=(int(input()))
 def fibonacci (n):
     if n < 0:
         print("Incorrect input")
@@ -50,22 +52,21 @@ def fibonacci (n):
 sequence = fibonacci(10)
 print(sequence)
 # Fibonacci Code End
-
+print("")
 # Prime Code Start
-
-n = int(input("Enter a number: "))
+print("Enter a number to check if its prime: ")
+n = (int(input()))
 
 if n > 1:
     for i in range(2, n//2):
         if(n % i) == 0:
-            print(n,": False")
+            print(n,": False - This is not a prime number")
             break
     else:
         print(n,": True - This number is prime")
 
 elif type(n) != int:
     print("Invalid - This number is not prime")
-
 # Prime Code End
 
 

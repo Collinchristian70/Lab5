@@ -25,6 +25,7 @@ print("\n", hexa_value, "\n")
 print("Input an integer for a factorial conversion")
 num = int(input())
 factorial = 1
+print("")
 if num < 0:
    print("Sorry, factorial does not exist for negative numbers")
 elif num == 0:
@@ -39,6 +40,7 @@ print("")
 # Fibonacci Code Start
 print("Input an integer for the Fibonacci sequence")
 n = int(input())
+print("")
 def fibonacci (n):
     if n < 0:
         print("Incorrect input")
@@ -71,7 +73,7 @@ def prime(n):
                 return False
         return True
 
-
+print("")
 print(prime(n))
 
 # Prime Code End

@@ -9,7 +9,7 @@ def hello_world():
      return jsonify(input='Howdy!', output= 'Hello World')
 
 #MD5 Code Start
-@app.route('/md5/<string:str>')
+@app.route("/md5/<string:str>")
 def MD5(str):
     encoded_str = str.encode()
     hash_obj = hashlib.md5(encoded_str)
@@ -20,50 +20,47 @@ def MD5(str):
 #Factorial Code Start
 @app.route('/factorial/<int:num>')
 def Factorial(num):
-    num = int(input())
+    num=int(num)
     factorial = 1
     if num < 0:
-        print("Sorry, factorial does not exist for negative numbers")
+        return jsonify(input=num, output= "Sorry, factorial does not exist for negative numbers")
     elif num == 0:
-        print("The factorial of 0 is 1")
+        return jsonify(input=num, output= "The factorial of 0 is 1")
     else:
         for i in range(1,num + 1):
            factorial = factorial*i
-
-    return jsonify(input=num, output=factorial)
+        return jsonify(input=num, output=factorial)
 #Factorial Code End
 
 # Fibonacci Code Start
-@app.route("/fibonacci/<int:number>")
+@app.route("/fibonacci/<int:n>")
 def calc_fibonacci(n):
-    n = int(input())
-    def fibonacci (n):
-        if n < 0:
-            return jsonify(input=n, output="Error: Please enter a number greater or equal to 0")
-        sequence = [0,1]
-        for i in range(2,n+1):
-            next_num = sequence[-1] + sequence[-2]
+    if n < 0:
+        return jsonify(input=n, output="Error: Please enter a number greater or equal to 0")
+    sequence = [0,1]
+    for i in range(2,n+1):
+        next_num = sequence[-1] + sequence[-2]
 
-            sequence.append(next_num)
-        return jsonify(input=n, output=sequence)
+        sequence.append(next_num)
+    return jsonify(input=n, output=sequence)
 # Fibonacci Code End
 
 
 # Prime Code Start
-print("Enter a number to check if its prime: ")
-n = (int(input()))
+#print("Enter a number to check if its prime: ")
+#n = (int(input()))
 
-def fibonacci(n):
-    if (n==1):
-        return False
-    elif (n==2):
-        return True;
-    else:
-        for x in range(2,n):
-            if(n % x==0):
-                return False
-        return True             
-print(fibonacci(n))
+#def fibonacci(n):
+#    if (n==1):
+#        return False
+#    elif (n==2):
+#        return True;
+#    else:
+#        for x in range(2,n):
+#            if(n % x==0):
+#                return False
+#        return True             
+#print(fibonacci(n))
 # Prime Code End
 
 @app.route('/slack-alert/<string:msg>')

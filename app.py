@@ -1,16 +1,16 @@
-from flask import Flask, request, render_template
+# from flask import Flask, request, render_template
 import hashlib
 from typing import Sequence
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+# @app.route("/")
+# def hello_world():
+#     return "<p>Hello, World!</p>"
 
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
+# if __name__ == '__main__':
+#     app.debug = True
+#     app.run(host="0.0.0.0")
 
 #MD5 Code Start
 print("Input MD5 string for conversion")
@@ -38,6 +38,7 @@ print("")
 
 # Fibonacci Code Start
 print("Input an integer for the Fibonacci sequence")
+n = int(input())
 def fibonacci (n):
     if n < 0:
         print("Incorrect input")
@@ -48,10 +49,12 @@ def fibonacci (n):
         sequence.append(next_num)
     return sequence
 
-sequence = fibonacci(5)
+sequence = fibonacci(n)
 print(sequence)
 # Fibonacci Code End
+
 print("")
+
 # Prime Code Start
 print("Enter a number to check if its prime: ")
 n = (int(input()))

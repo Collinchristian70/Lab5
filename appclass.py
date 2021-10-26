@@ -34,58 +34,52 @@ def Factorial(num):
 
 # Fibonacci Code Start
 @app.route("/fibonacci/<int:n>")
-def calc_fibonacci(n):
-    if n < 0:
-        return jsonify(input=n, output="Error: Please enter a number greater or equal to 0")
-    sequence = [0,1]
-    for i in range(2,n+1):
-        next_num = sequence[-1] + sequence[-2]
+def calc_fibonacci(number):
+    fibonacci = [0]
+    c1 = 0
+    c2 = 1
+    fib = 0
+    check = 0
 
-        sequence.append(next_num)
-    return jsonify(input=n, output=sequence)
+    if number < 0:
+        return jsonify(input=number, output="Error: Please enter a number greater or equal to 0")
+    elif number == 0:
+        fibonacci = [0]
+    else:
+        while check == 0:
+            fib = c1 + c2
+            c2 = c1
+            c1 = fib
+            if fib <= number:
+                fibonacci.append(fib)
+            else:
+                check = 1
+    return jsonify(input=number, output=fibonacci)
 # Fibonacci Code End
 
 
 # Prime Code Start
-@app.route("/is-prime/<int>:n")
-def isprime(n):
+@app.route('/is-prime/<int:number>')
+def is_prime(number):
+    isPrime = False
+    if number == 2:
+        isPrime = True
+    if number > 2:
+        isPrime = True
+        for i in range(2, number):
+            if number % i == 0:
+                isPrime = False
+                break
 
-    n = int(input("Enter a number to check if its prime: "))
-
-
-    if n <= 1:
-        return False
-    elif n == 2:
-        return True
+    if isPrime:
+       return jsonify(input=number, output="True")
     else:
-        for x in range(2, n):
-            if n % x == 0:
-                return False
-        return True
+       return jsonify(input=number, output="False")
 
 
 # Prime Code End
 
-@app.route('/slack-alert/<string:msg>')
-def slack(msg):
-	try:
-		response = client.chat_postMessage(
-			channel="C011KJWHA22",
-			text=msg
-		)
-		print("RESPONSE:", response)
-		return jsonify(
-			input=msg,
-			message=msg,
-			output= "Message was successfully sent in slack" if response['ok'] else ''
-		), 200 if response['ok'] else 400
-	except SlackApiError as e:
-		assert e.response["error"]
-		return jsonify(
-			input=msg,
-			message=msg,
-			output=e.response["error"]
-		)
+
 
 
 if __name__ == '__main__':

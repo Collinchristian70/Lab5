@@ -1,13 +1,12 @@
-from flask import Flask, request
-import hashlib
+def fibonacci (n):
+    if n < 0:
+        print("Incorrect input")
+    sequence = [0,1]
+    for i in range(2,n+1):
+        next_num = sequence[-1] + sequence[-2]
 
-app = Flask(__name__)
+        sequence.append(next_num)
+    return sequence
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, Worlddddddd!</p>"
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
-
+sequence = fibonacci(10)
+print(sequence)

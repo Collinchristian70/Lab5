@@ -52,11 +52,12 @@ sequence = fibonacci(5)
 print(sequence)
 # Fibonacci Code End
 print("")
+
 # Prime Code Start
 print("Enter a number to check if its prime: ")
 n = (int(input()))
 
-def fibonacci(n):
+def prime(n):
     if (n==1):
         return False
     elif (n==2):
@@ -66,7 +67,7 @@ def fibonacci(n):
             if(n % x==0):
                 return False
         return True             
-print(fibonacci(n))
+print(prime(n))
 # Prime Code End
 
 

@@ -1,0 +1,89 @@
+<html> 
+	
+	<body>
+
+        <form class="grid" action="/result" method="POST">
+
+          {% if name %}
+            <center>
+              <h3 style="color: blue;" class="let_space">{{name}}</h3>
+            </center> 
+
+          {% endif %}
+           
+          <label for="name">Input a stirng to convent to MD5 string conversion will display adove:</label>
+          <input type="text" id="value" name="name">
+
+          <center><input class="file_submit" type="Submit"></center>
+
+        </form>
+
+        <br />
+
+        <form class="grid" action="/result2" method="POST">
+
+          {% if name %}
+
+          {% endif %}
+           
+          <label for="name">Input a number the the factorial will display above:</label>
+          <input type="number" id="name" name="name">
+
+          <center><input class="file_submit" type="Submit"></center>
+
+        </form>
+
+        <br />
+
+        <form class="grid" action="/result3" method="POST">
+
+          {% if name %}
+
+          {% endif %}
+           
+          <label for="name">Input will return numbers in Fibonacci that are less than or equal to the input number above:</label>
+          <input type="number" id="name" name="name">
+
+          <center><input class="file_submit" type="Submit"></center>
+
+        </form>
+
+        <br />
+        
+        <form class="grid" action="/result4" method="POST">
+
+          {% if name %}
+
+          {% endif %}
+           
+          <label for="name">Input a number the prime number state will display above:</label>
+          <input type="number" id="name" name="name">
+
+          <center><input class="file_submit" type="Submit"></center>
+
+        </form>
+
+        <br />
+
+        <form class="grid" action="/result5" method="POST">
+
+          {% if name %}
+
+          {% endif %}
+           
+          <label for="name">Input will send to slack:</label>
+          <input type="text" id="name" name="name">
+
+          <center><input class="file_submit" type="Submit"></center>
+
+        </form>
+
+        
+        <br>
+        <br>
+        <br>
+
+
+    </body>
+
+</html>

@@ -8,5 +8,5 @@ def fibonacci (n):
         sequence.append(next_num)
     return sequence
 
-sequence = fibonacci(10)
+sequence = fibonacci(5)
 print(sequence)

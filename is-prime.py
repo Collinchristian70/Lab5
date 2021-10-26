@@ -13,4 +13,5 @@ def prime(n):
         return True
 
 
+print("")
 print(prime(n))

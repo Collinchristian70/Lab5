@@ -56,20 +56,23 @@ print(sequence)
 print("")
 
 # Prime Code Start
-print("Enter a number to check if its prime: ")
-n = (int(input()))
+n = int(input("Enter a number to check if its prime: "))
+
 
 def prime(n):
-    if (n==1):
+    if n <= 1:
         return False
-    elif (n==2):
-        return True;
+    elif n == 2:
+        return True
     else:
-        for x in range(2,n):
-            if(n % x==0):
+        for x in range(2, n):
+            if n % x == 0:
                 return False
-        return True             
+        return True
+
+
 print(prime(n))
+
 # Prime Code End
 
 

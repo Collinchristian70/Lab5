@@ -47,20 +47,23 @@ def calc_fibonacci(n):
 
 
 # Prime Code Start
-#print("Enter a number to check if its prime: ")
-#n = (int(input()))
+@app.route("/is-prime/<int>:n")
+def isprime(n):
 
-#def fibonacci(n):
-#    if (n==1):
-#        return False
-#    elif (n==2):
-#        return True;
-#    else:
-#        for x in range(2,n):
-#            if(n % x==0):
-#                return False
-#        return True             
-#print(fibonacci(n))
+    n = int(input("Enter a number to check if its prime: "))
+
+
+    if n <= 1:
+        return False
+    elif n == 2:
+        return True
+    else:
+        for x in range(2, n):
+            if n % x == 0:
+                return False
+        return True
+
+
 # Prime Code End
 
 @app.route('/slack-alert/<string:msg>')

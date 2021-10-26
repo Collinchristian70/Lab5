@@ -1,12 +1,16 @@
-n = int(input("Enter a number: "))
+n = int(input("Enter a number to check if its prime: "))
 
-if n > 1:
-    for i in range(2, n//2):
-        if(n % i) == 0:
-            print(n,": False")
-            break
+
+def prime(n):
+    if n <= 1:
+        return False
+    elif n == 2:
+        return True
     else:
-        print(n,": True")
+        for x in range(2, n):
+            if n % x == 0:
+                return False
+        return True
 
-elif type(n) != int:
-    print("Invalid")
+
+print(prime(n))

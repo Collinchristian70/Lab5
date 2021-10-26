@@ -79,8 +79,34 @@ def is_prime(number):
 
 # Prime Code End
 
+import requests
+import sys
+import getopt
 
 
+#send slack message using slack API
+@app.route('/slack-alert/<string:message>')
+def send_slack_message(message):
+    payload = '{"text": "%s"}' % message
+    response = requests.post('https://hooks.slack.com/services/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', data=payload)
+    print(response.text)
+
+    try: opts, arge = getopt.getopt(message, "hm:", ["message="])
+    except getopt.GetoptError:
+        return jsonify(input=message, output="0")
+        sys.exit(2)
+    if len(opts) == 0: 
+        return jsonify(input=message, output='1')
+        sys.exit(0)
+    for opt, arg in opts:
+        if opt == '-h':
+            return jsonify(input=message, output=message)
+            sys.exit()
+        elif opt in ("-m", "--message"):
+            message = arg
+    send_slack_message(message)
+    return jsonify(input=message, output=message)
+    sys.exit(1)
 
 if __name__ == '__main__':
     app.debug = True

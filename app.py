@@ -56,16 +56,17 @@ print("")
 print("Enter a number to check if its prime: ")
 n = (int(input()))
 
-if n > 1:
-    for i in range(2, n//2):
-        if(n % i) == 0:
-            print(n,": False - This is not a prime number")
-            break
+def fibonacci(n):
+    if (n==1):
+        return False
+    elif (n==2):
+        return True;
     else:
-        print(n,": True - This number is prime")
-
-elif type(n) != int:
-    print("Invalid - This number is not prime")
+        for x in range(2,n):
+            if(n % x==0):
+                return False
+        return True             
+print(fibonacci(n))
 # Prime Code End
 
 

@@ -38,7 +38,6 @@ print("")
 
 # Fibonacci Code Start
 print("Input an integer for the Fibonacci sequence")
-n=(int(input()))
 def fibonacci (n):
     if n < 0:
         print("Incorrect input")

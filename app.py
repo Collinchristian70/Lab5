@@ -56,7 +56,8 @@ print(sequence)
 print("")
 
 # Prime Code Start
-n = int(input("Enter a number to check if its prime: "))
+print("Enter a number to check if its prime: ")
+int(input())
 
 
 def prime(n):

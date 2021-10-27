@@ -8,9 +8,6 @@ app = Flask(__name__)
 def hello_world():
      return jsonify(input='Howdy!', output= 'Hello World')
 
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
 
 #MD5 Code Start
 @app.route("/md5/<string:str>")

@@ -33,7 +33,7 @@ def Factorial(num):
 #Factorial Code End
 
 # Fibonacci Code Start
-@app.route("/fibonacci/<int:n>")
+@app.route("/fibonacci/<int:number>")
 def calc_fibonacci(number):
     fibonacci = [0]
     c1 = 0

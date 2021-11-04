@@ -76,14 +76,11 @@ def is_prime(number):
        return jsonify(input=number, output="True")
     else:
        return jsonify(input=number, output="False")
-
-
 # Prime Code End
 
 import requests
 import sys
 import getopt
-
 
 #send slack message using slack API
 @app.route('/slack-alert/<string:message>')
@@ -112,3 +109,4 @@ def send_slack_message(message):
 if __name__ == '__main__':
     app.debug = True
     app.run(host="0.0.0.0")
+#end of slack message using slack API

@@ -110,3 +110,25 @@ if __name__ == '__main__':
     app.debug = True
     app.run(host="0.0.0.0")
 #end of slack message using slack API
+
+#redis
+
+import redis
+
+r = redis.StrictRedis(host='yourhost', port=6379, db=0)
+
+@app.route("POST /keyval")
+def post(key):
+     r.set(key, newkey)
+
+@app.route("GET /keyval/<string:str>")
+def post(str):
+     r.get(key, newkey)
+
+@app.route("PUT /<int: key>")
+def post(key):
+     r.put(key, newkey)
+
+@app.route("DELETE /<int: key>")
+def post(key):
+     r.delete(key, newkey)

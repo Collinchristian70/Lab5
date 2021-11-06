@@ -115,20 +115,97 @@ if __name__ == '__main__':
 
 import redis
 
-r = redis.StrictRedis(host='yourhost', port=6379, db=0)
+REDIS = redis.Redis(host='redis-server')
+status_code = " "
+app = Flask(__name__)
 
-@app.route("POST /keyval")
-def post(key):
-     r.set(key, newkey)
+@app.route('/keyval', methods = ['POST'])
+def post():
+    
+	payload = request.get_json()
+	
+	
+	if REDIS.exists(payload['key']):
+		
+		return jsonify(
+			key= payload['key'], 
+			value = payload['value'], 
+			command=f"CREATE {payload['key']}/{payload['value']}",
+			result=False, 
+			error="Key already exists"
+		), 409
+	else:	
+		REDIS.set(payload['key'], payload['value'])
+		return jsonify(
+			key= payload['key'], 
+			value = payload['value'], 
+			command=f"CREATE {payload['key']}/{payload['value']}",
+			result=True, 
+			error=""
+		), 200
 
-@app.route("GET /keyval/<string:str>")
-def post(str):
-     r.get(key, newkey)
+@app.route('/keyval/<string:user_key>', methods = ['GET'])
+def get(user_key):
+	
+	if REDIS.exists(user_key):
+		redis_val = REDIS.get(user_key)
+		return jsonify(
+			key=user_key,
+			value=redis_val.decode('unicode-escape'), #decodes the byte string to python string
+			command=f"GET {user_key}",
+			result=True,
+			error= ""
+		), 200
+	else:
+		return jsonify(
+			key=user_key, 
+			value=None, 
+			command=f"GET {user_key}",
+			result=False, 
+			error="Key does not exist"
+		), 404
 
-@app.route("PUT /<int: key>")
-def post(key):
-     r.put(key, newkey)
+@app.route('/keyval', methods = ['PUT'])
+def put():
+	
+	payload = request.get_json()
+	
+	if REDIS.exists(payload['key']):
+		REDIS.set(payload['key'], payload['value'])
+		return jsonify(
+			key= payload['key'], 
+			value=payload['value'], 
+			command=f"UPDATE {payload['key']}/{payload['value']}",
+			result=True, 
+			error=""
+		), 200
+	else:
+		return jsonify(
+			key= payload['key'], 
+			value = payload['value'], 
+			command=f"UPDATE {payload['key']}/{payload['value']}",
+			result=False, 
+			error="Key does not exist, use POST to create key value pair."
+		), 404
 
-@app.route("DELETE /<int: key>")
-def post(key):
-     r.delete(key, newkey)
+@app.route('/keyval/<string:user_key>',methods = ['DELETE'])
+def delete(user_key):
+	
+	if REDIS.exists(user_key):	
+		redis_val = REDIS.get(user_key)
+		REDIS.delete(user_key)
+		return jsonify(
+			key=user_key,
+			value=redis_val.decode('unicode-escape'), #decodes the byte string to python string
+			command=f"DELETE {user_key}",
+			result=True,
+			error= ""
+		), 200
+	else:
+		return jsonify(
+			key=user_key, 
+			value=None, 
+			command=f"DELETE {user_key}",
+			result=False, 
+			error="Key does not exist, use POST to create key value pair."
+		), 404

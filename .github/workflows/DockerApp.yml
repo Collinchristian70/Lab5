@@ -51,7 +51,9 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK }}
         with:
           command: monitor
-          image: "ghcr.io/gbaeke/rgapi:main"
+=======
+          image: "appclass.io/Collinchristian70/rgapi:main"
+>>>>>>> Edith
           args: --file=Dockerfile --project-name=rgapi 
           
       - name: Push image

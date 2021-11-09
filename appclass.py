@@ -1,6 +1,10 @@
 from flask import Flask, json, jsonify, request, Response
 import os
 import hashlib
+import redis
+import requests
+import sys
+import getopt
 
 app = Flask(__name__)
 
@@ -73,14 +77,10 @@ def is_prime(number):
                 break
 
     if isPrime:
-       return jsonify(input=number, output="True")
+       return jsonify(input=number, output=True)
     else:
-       return jsonify(input=number, output="False")
+       return jsonify(input=number, output=False)
 # Prime Code End
-
-import requests
-import sys
-import getopt
 
 #send slack message using slack API
 @app.route('/slack-alert/<string:message>')
@@ -105,15 +105,9 @@ def send_slack_message(message):
     send_slack_message(message)
     return jsonify(input=message, output=message)
     sys.exit(1)
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
 #end of slack message using slack API
 
 #redis
-
-import redis
 
 REDIS = redis.Redis(host='redis-server')
 status_code = " "
@@ -209,3 +203,8 @@ def delete(user_key):
 			result=False, 
 			error="Key does not exist, use POST to create key value pair."
 		), 404
+#end redis
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host="0.0.0.0")

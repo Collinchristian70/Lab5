@@ -8,4 +8,6 @@ ADD appclass.py .
 
 RUN pip install requests flask markupsafe
 
-CMD [ "python", "./appclass.py" ]
+EXPOSE 5000
+
+CMD [ "python3", "./appclass.py" ]

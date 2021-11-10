@@ -102,14 +102,14 @@ def send_slack_message(message):
         elif opt in ("-m", "--message"):
             message = arg
     send_slack_message(message)
-
-		if __name__ == "__main__":
-    main(sys.argv[1:])
-    app.run()
 	
     return jsonify(input=message, output=message)
     sys.exit(1)
 #end of slack message using slack API
+
+if __name__ == "__main__":
+main(sys.argv[1:])
+app.run()
 
 #redis
 import redis

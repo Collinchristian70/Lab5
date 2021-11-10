@@ -104,6 +104,10 @@ def send_slack_message(message):
     send_slack_message(message)
     return jsonify(input=message, output=message)
     sys.exit(1)
+
+if __name__ == "__main__":
+	(sys.argv[1:])
+	app.run()
 #end of slack message using slack API
 
 #redis

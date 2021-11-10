@@ -210,6 +210,6 @@ def delete(user_key):
 		), 404
 #end redis
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.debug = False
     app.run()

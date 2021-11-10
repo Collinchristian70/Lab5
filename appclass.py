@@ -118,6 +118,9 @@ REDIS = redis.Redis(host='redis-server')
 status_code = " "
 app = Flask(__name__)
 
+if __name__ == "__main__":
+	app.run(host='0.0.0.0')
+
 @app.route('/keyval', methods = ['POST'])
 def post():
     
@@ -209,6 +212,3 @@ def delete(user_key):
 			error="Key does not exist, use POST to create key value pair."
 		), 404
 #end redis
-
-if __name__ == "__main__":
-	app.run(host='0.0.0.0')

@@ -1,7 +1,6 @@
 from flask import Flask, json, jsonify, request, Response
 import os
 import hashlib
-import redis
 import requests
 import sys
 import getopt
@@ -106,6 +105,8 @@ def send_slack_message(message):
     return jsonify(input=message, output=message)
     sys.exit(1)
 #end of slack message using slack API
+
+import redis
 
 #redis
 

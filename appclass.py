@@ -81,6 +81,7 @@ def is_prime(number):
 import requests
 import sys
 import getopt
+import redis
 
 #send slack message using slack API
 @app.route('/slack-alert/<string:message>')
@@ -112,8 +113,6 @@ if __name__ == '__main__':
 #end of slack message using slack API
 
 #redis
-
-import redis
 
 REDIS = redis.Redis(host='redis-server')
 status_code = " "

@@ -106,9 +106,9 @@ def send_slack_message(message):
     sys.exit(1)
 #end of slack message using slack API
 
-import redis
-
 #redis
+#import redis
+
 
 REDIS = redis.Redis(host='redis-server')
 status_code = " "

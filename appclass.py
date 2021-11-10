@@ -206,5 +206,5 @@ def delete(user_key):
 #end redis
 
 if __name__ == '__main__':
-    app.debug = True
+    app.debug = False
     app.run(host="0.0.0.0")

@@ -8,7 +8,7 @@ ADD appclass.py .
 
 RUN pip install requests flask markupsafe
 
-RUN Pip install redis
+RUN pip install redis
 
 EXPOSE 5000
 

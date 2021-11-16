@@ -4,7 +4,6 @@ import hashlib
 import requests
 import sys
 import getopt
-import redis
 
 app = Flask(__name__)
 
@@ -205,6 +204,6 @@ def delete(user_key):
 		), 404
 
 if __name__ == "__main__":
-	(sys.argv[1:])
+	app.debug = True
 	app.run(host='0.0.0.0', port=5000)
 #end redis

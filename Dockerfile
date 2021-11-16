@@ -8,6 +8,8 @@ ADD appclass.py .
 
 RUN pip install requests flask markupsafe
 
+RUN pip install redis
+
 EXPOSE 5000
 
 CMD [ "python3", "./appclass.py" ]

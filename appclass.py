@@ -4,7 +4,10 @@ import hashlib
 import requests
 import sys
 import getopt
+import redis
 
+REDIS = redis.Redis(host='redis-server')
+status_code = " "
 app = Flask(__name__)
 
 @app.route("/")
@@ -107,10 +110,6 @@ def send_slack_message(message):
 #end of slack message using slack API
 
 #redis
-
-REDIS = redis.Redis(host='redis-server')
-status_code = " "
-app = Flask(__name__)
 
 @app.route('/keyval', methods = ['POST'])
 def post():

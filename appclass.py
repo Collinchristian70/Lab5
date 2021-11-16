@@ -4,6 +4,7 @@ import hashlib
 import requests
 import sys
 import getopt
+import redis
 
 app = Flask(__name__)
 
@@ -104,21 +105,13 @@ def send_slack_message(message):
     send_slack_message(message)
     return jsonify(input=message, output=message)
     sys.exit(1)
-
-if __name__ == "__main__":
-	(sys.argv[1:])
-	app.run()
 #end of slack message using slack API
 
 #redis
-import redis
 
 REDIS = redis.Redis(host='redis-server')
 status_code = " "
 app = Flask(__name__)
-
-if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=5000)
 
 @app.route('/keyval', methods = ['POST'])
 def post():
@@ -210,4 +203,8 @@ def delete(user_key):
 			result=False, 
 			error="Key does not exist, use POST to create key value pair."
 		), 404
+
+if __name__ == "__main__":
+	(sys.argv[1:])
+	app.run(host='0.0.0.0', port=5000)
 #end redis

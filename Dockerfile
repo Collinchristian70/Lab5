@@ -10,6 +10,6 @@ RUN pip install requests flask markupsafe
 
 RUN pip install redis
 
-EXPOSE 80
+EXPOSE 5000
 
 CMD [ "python3", "./appclass.py" ]

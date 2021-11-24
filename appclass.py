@@ -93,10 +93,10 @@ def send_slack_message(message):
 
     try: opts, arge = getopt.getopt(message, "hm:", ["message="])
     except getopt.GetoptError:
-        return jsonify(input=message, output="0")
+        return jsonify(input=message, output=False)
         sys.exit(2)
     if len(opts) == 0: 
-        return jsonify(input=message, output='1')
+        return jsonify(input=message, output=True)
         sys.exit(0)
     for opt, arg in opts:
         if opt == '-h':

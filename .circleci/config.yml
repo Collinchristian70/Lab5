@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           command: |  # use pipenv to install dependencies
-            pip install --upgrade pip
+            sudo pip3 install --upgrade pip
             pip3 install requests flask markupsafe
             pip3 install redis
       - run: python3 appclass.py

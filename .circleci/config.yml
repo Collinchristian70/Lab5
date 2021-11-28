@@ -16,7 +16,8 @@ jobs:
     steps:
       - checkout
       - run: python3 testerapp.py
-store_test_results
+store_test_results:
+  path: test-results
 workflows:
   build_and_test:
     jobs:

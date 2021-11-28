@@ -10,8 +10,8 @@ jobs:
       - checkout
       - run:
           command: |  # use pipenv to install dependencies
-            pip install requests flask markupsafe
-            pip install redis
+            pip3 install requests flask markupsafe
+            pip3 install redis
       - run: python3 appclass.py
   test:
     working_directory: ~/circleci-python

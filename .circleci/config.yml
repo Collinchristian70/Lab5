@@ -8,6 +8,11 @@ jobs:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
+      - run:
+          command: |  # use pipenv to install dependencies
+            sudo pip3 install --upgrade pip
+            pip3 install requests flask markupsafe
+            pip3 install redis
       - run: python3 appclass.py
   test:
     working_directory: ~/circleci-python
@@ -16,8 +21,7 @@ jobs:
     steps:
       - checkout
       - run: python3 testerapp.py
-store_test_results:
-  path: test-results
+
 workflows:
   build_and_test:
     jobs:

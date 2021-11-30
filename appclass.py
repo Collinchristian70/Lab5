@@ -1,4 +1,8 @@
-from flask import Flask, json, jsonify, request, Response
+from flask import Flask
+import json
+import jsonify
+import request
+import Response
 import os
 import hashlib
 import requests

@@ -3,7 +3,7 @@ import os
 import hashlib
 import requests
 import sys
-import getopt
+import getopt 
 import redis
 
 REDIS = redis.Redis(host='redis-server')

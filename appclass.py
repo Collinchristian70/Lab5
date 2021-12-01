@@ -10,7 +10,7 @@ import sys
 import getopt 
 import redis
 
-REDIS = redis.Redis(host='redis-server, port=6379, db=0)
+REDIS = redis.Redis(host='redis-server', port=6379, db=0)
 status_code = " "
 app = Flask(__name__)
 

@@ -4,7 +4,7 @@ WORKDIR /opt/app
 
 COPY . . 
 
-ADD appclass.py .
+ADD testerapp.py .
 
 RUN pip install requests flask markupsafe
 
@@ -12,4 +12,4 @@ RUN pip install redis
 
 EXPOSE 5000
 
-CMD [ "python3", "./appclass.py" ]
+CMD [ "python3", "./testerapp.py" ]

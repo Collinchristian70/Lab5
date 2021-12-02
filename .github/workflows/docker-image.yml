@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: |
         cd testapp
-        docker build -t appclass .
+        docker build -t appclass-tester .
 
     - name: Build API
       env:
@@ -37,7 +37,7 @@ jobs:
     - name: test code
       run: |
         cd api
-        docker run appclass
+        docker run appclass-tester
 
     - name: push image
       run: |

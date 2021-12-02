@@ -16,13 +16,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
+        cd API-TEST
         docker build -t appclass .
 
     - name: Build API
     env:
       run: |
         cd api
-        docker build -t appclass
+        docker build -t appclass .
 
     - name: Docker compose
       run: |

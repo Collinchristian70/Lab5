@@ -24,7 +24,7 @@ jobs:
         SLACK_HOOK: ${{ secrets.SLACK_HOOK}}
       run: |
         cd api
-        docker build -t appclass .
+        docker build -t konnorscott/appclass .
 
     - name: Docker compose
       run: |
@@ -36,8 +36,8 @@ jobs:
 
     - name: test code
       run: |
-        cd api
-        docker run appclass-tester
+        cd ../testapp
+        docker run konnorscott/appclass-tester
 
     - name: push image
       run: |

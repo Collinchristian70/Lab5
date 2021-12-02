@@ -36,7 +36,7 @@ jobs:
 
     - name: test code
       run: |
-        cd ../testapp
+        cd api
         docker run konnorscott/appclass-tester
 
     - name: push image

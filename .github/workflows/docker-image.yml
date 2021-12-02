@@ -16,13 +16,15 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        docker build -t dockerimage .
+        cd testapp
+        docker build -t appclass-tester .
 
     - name: Build API
-    env:
+      env:
+        SLACK_HOOK: ${{ secrets.SLACK_HOOK}}
       run: |
         cd api
-        docker fuild -t dockerimage
+        docker build -t appclass .
 
     - name: Docker compose
       run: |
@@ -35,14 +37,14 @@ jobs:
     - name: test code
       run: |
         cd api
-        docker run dockerimagetestfile
+        docker run appclass-tester
 
     - name: push image
       run: |
         docker login -u ${{ secrets.konnor_u}} -p {{ secrets.konnor_p}}
-        docker image tag 
-        docker image tag
-        docker image push
+        docker image tag appclass appclass:latest
+        docker image tag appclass  appclass:$$(date +%s)
+        docker image push --all-tag appclass
     
 
 

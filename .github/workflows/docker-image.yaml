@@ -13,5 +13,5 @@ name: Push the Docker image
       with:
         username: ${{ secrets.konnor_u }}
         password: ${{ secrets.konnoe_p}}
-        repository: konnorscorr22
+        repository: konnorscorr22/lab5
         tags: latest, ${{ github.run_number }}

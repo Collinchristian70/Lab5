@@ -1,7 +1,7 @@
 import requests
 import json
 from flask import Flask, jsonify, escape, request, Response
-host = '0.0.0.0:5000' #this host needs to be updated
+host = 'https://localhost:5000' #this host needs to be updated
 errors = 0
 
 all_tests_dict = {

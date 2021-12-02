@@ -20,7 +20,8 @@ jobs:
         docker build -t appclass .
 
     - name: Build API
-    env:
+      env:
+        SLACK_HOOK: ${{ secrets.SLACK_HOOK}}
       run: |
         cd api
         docker build -t appclass .

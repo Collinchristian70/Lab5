@@ -1,16 +1,12 @@
-from flask import Flask
-import json
-import jsonify
-import request
-import Response
+from flask import Flask, json, jsonify, request, Response
 import os
 import hashlib
 import requests
 import sys
-import getopt 
+import getopt
 import redis
 
-REDIS = redis.Redis(host='redis-server', port=6379, db=0)
+REDIS = redis.Redis(host='redis-server')
 status_code = " "
 app = Flask(__name__)
 
@@ -210,3 +206,4 @@ if __name__ == "__main__":
 	app.debug = False
 	app.run(host='0.0.0.0', port=80)
 #end redis
+

@@ -102,3 +102,5 @@ for path, result in keyval_tests_dict.items(): #DELETE
               
 print(f"Percentage = {(1-errors/24)*100}")
 print(f"Number of Errors = {errors}")
+
+exit(1)

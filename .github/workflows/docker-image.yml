@@ -29,7 +29,7 @@ jobs:
     - name: Docker compose
       run: |
         cd api
-        docker-compose up -d
+        docker-compose up 
 
     - name: docker ps
       run: |
@@ -45,7 +45,7 @@ jobs:
         docker login -u ${{ secrets.konnor_u}} -p {{ secrets.konnor_p}}
         docker image tag appclass appclass:latest
         docker image tag appclass  appclass:$$(date +%s)
-        docker image push --all -tag appclass
+        docker image push -a appclass
     
 
 

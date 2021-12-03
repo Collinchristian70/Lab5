@@ -29,7 +29,7 @@ jobs:
     - name: Docker compose
       run: |
         cd api
-        docker-compose up 
+        docker-compose up -d
 
     - name: docker ps
       run: |

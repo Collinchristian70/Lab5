@@ -37,7 +37,7 @@ jobs:
 
     - name: test code
       run: |
-        cd api
+        cd testapp
         docker run konnorscott/appclass-tester
 
     - name: push image
@@ -45,7 +45,7 @@ jobs:
         docker login -u ${{ secrets.konnor_u}} -p {{ secrets.konnor_p}}
         docker image tag appclass appclass:latest
         docker image tag appclass  appclass:$$(date +%s)
-        docker image push --all-tag appclass
+        docker image push --all -tag appclass
     
 
 

@@ -1,7 +1,7 @@
 import requests
 import json
 from flask import Flask, jsonify, escape, request, Response
-host = '172.18.0.2:5000/' #this host needs to be updated
+host = 'localhost:5000' #this host needs to be updated
 errors = 0
 
 all_tests_dict = {
@@ -102,5 +102,3 @@ for path, result in keyval_tests_dict.items(): #DELETE
               
 print(f"Percentage = {(1-errors/24)*100}")
 print(f"Number of Errors = {errors}")
-
-exit(1)
